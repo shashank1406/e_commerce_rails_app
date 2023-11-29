@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
 
-    JWT_SECRET = Rails.application.credentials.secrate_key_base
+    JWT_SECRET = Rails.application.credentials.secret_key_base
     
     def authenticate_user
         auth_header = request.headers['Authorization']

@@ -17,6 +17,8 @@ gem 'pg'
 
 gem 'active_model_serializers' # For JSON serialization
 
+gem 'rack-cors',require:'rack/cors' 
+
 # gem "image_processing", ">= 1.2"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]

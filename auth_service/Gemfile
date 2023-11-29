@@ -18,6 +18,8 @@ gem 'jwt'  #for creating a jwt token for user
 
 gem 'rack-cors',require:'rack/cors' 
 
+gem 'pg'
+
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
