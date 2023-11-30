@@ -4060,3 +4060,66 @@ Processing by OrdersController#index as HTML
 Completed 200 OK in 162ms (Views: 2.6ms | ActiveRecord: 12.7ms | Allocations: 2828)
 
 
+Started POST "/order" for ::1 at 2023-11-30 10:50:30 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (5.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"20", "price"=>58, "quantity"=>1, "order"=>{}}
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:5:in `create'
+  [1m[36mLineItem Load (2.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 1], ["product_id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mLineItem Update (9.3ms)[0m  [1m[33mUPDATE "line_items" SET "quantity" = $1, "updated_at" = $2 WHERE "line_items"."id" = $3[0m  [["quantity", 3], ["updated_at", "2023-11-30 05:20:30.793729"], ["id", 14]]
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/models/line_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "574.0"], ["updated_at", "2023-11-30 05:20:30.808548"], ["id", 1]]
+  ↳ app/models/line_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:9:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.26ms)
+Completed 201 Created in 92ms (Views: 2.0ms | ActiveRecord: 49.0ms | Allocations: 30649)
+
+
+Started GET "/orders" for ::1 at 2023-11-30 10:50:30 +0530
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:22:in `index'
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/controllers/orders_controller.rb:29:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.28ms)
+Completed 200 OK in 52ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 3481)
+
+
+Started GET "/orders" for ::1 at 2023-11-30 10:50:30 +0530
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:22:in `index'
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/controllers/orders_controller.rb:29:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.26ms)
+Completed 200 OK in 41ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 2864)
+
+
+Started DELETE "/order/20" for ::1 at 2023-11-30 10:50:34 +0530
+Processing by OrdersController#destroy as HTML
+  Parameters: {"product_id"=>"20"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:56:in `destroy'
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 1], ["product_id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:58:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:59:in `destroy'
+  [1m[36mLineItem Destroy (0.9ms)[0m  [1m[31mDELETE FROM "line_items" WHERE "line_items"."id" = $1[0m  [["id", 14]]
+  ↳ app/controllers/orders_controller.rb:59:in `destroy'
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/models/line_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.2ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "400.0"], ["updated_at", "2023-11-30 05:20:34.281156"], ["id", 1]]
+  ↳ app/models/line_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:59:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 2.5ms | Allocations: 3991)
+
+

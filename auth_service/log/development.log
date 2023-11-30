@@ -1462,3 +1462,12 @@ Processing by AuthenticationsController#login as HTML
 Completed 200 OK in 231ms (Views: 1.4ms | ActiveRecord: 2.7ms | Allocations: 581)
 
 
+Started POST "/login" for ::1 at 2023-11-30 10:50:25 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (3.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationsController#login as HTML
+  Parameters: {"email"=>"shashankshrivastava@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"shashankshrivastava@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "shashankshrivastava@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentications_controller.rb:14:in `login'
+Completed 200 OK in 393ms (Views: 0.2ms | ActiveRecord: 97.1ms | Allocations: 21784)
+
+

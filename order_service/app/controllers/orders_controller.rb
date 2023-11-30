@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
         @line_item = @order.line_items.find_by_product_id(params[:product_id])
 
         if @line_item
-            @line_item.update({quantity: @line_item.quantity+params[:quantity].to_i,price: params[:price]})
+            @line_item.update({quantity: @line_item.quantity+params[:quantity].to_i})
         else
             @order.line_items.build({product_id: params[:product_id], quantity: params[:quantity],price: params[:price] })
         end
@@ -23,11 +23,8 @@ class OrdersController < ApplicationController
         line_item = @orders.line_items
         response = []
 
-        auth_header = request.headers['Authorization']
-        token = auth_header.split(' ').last if auth_header
-
         line_item.each do |item|
-            product = HTTParty.get("http://localhost:3002/product/#{item.product_id}",headers: {Authorization: "Bearer #{token}"} )
+            product = HTTParty.get("http://localhost:3002/product/#{item.product_id}",headers: {Authorization: "Bearer #{@token}"} )
             response.push({**product.parsed_response, quantity:item.quantity})
         end
 
