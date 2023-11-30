@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
     before_action :authenticate_user
+ 
     
     def create
         @order = Order.find_or_initialize_by(user_id: @current_user_id,status: 'CART')
@@ -20,16 +21,9 @@ class OrdersController < ApplicationController
     
     def index
         @orders = Order.find_by(user_id: @current_user_id, status: 'CART')
-        line_item = @orders.line_items
-        response = []
-
-        line_item.each do |item|
-            product = HTTParty.get("http://localhost:3002/product/#{item.product_id}",headers: {Authorization: "Bearer #{@token}"} )
-            response.push({**product.parsed_response, quantity:item.quantity})
-        end
-
+        order_process = OrderProcessService.new(@orders.line_items,@token)
         if @orders
-            render json: {order_detail: @orders, products: response} , status: :ok
+            render json: {order_detail: @orders, products: order_process.get_products_by_ids()} , status: :ok
         else
             render json: {message: 'not found'}, status: :unprocessable_entity
         end
@@ -71,6 +65,15 @@ class OrdersController < ApplicationController
 
     def line_item_update_params
         params.permit(:quantity)
-     end
+    end
+
+    # def get_products_by_ids(line_item)
+    #     response = []
+    #     line_item.each do |item|
+    #         product = HTTParty.get("http://localhost:3002/product/#{item.product_id}",headers: {Authorization: "Bearer #{@token}"} )
+    #         response.push({**product.parsed_response, quantity:item.quantity})
+    #     end
+    #     response
+    # end
        
 end

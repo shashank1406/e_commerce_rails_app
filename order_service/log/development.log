@@ -4123,3 +4123,256 @@ Processing by OrdersController#destroy as HTML
 Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 2.5ms | Allocations: 3991)
 
 
+Started GET "/orders" for ::1 at 2023-11-30 12:01:03 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (3.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:22:in `index'
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 18.0ms | Allocations: 8423)
+
+
+  
+NameError (uninitialized constant OrdersController::ORDERPROCESS):
+  
+app/controllers/orders_controller.rb:24:in `index'
+Started GET "/orders" for ::1 at 2023-11-30 12:07:37 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:22:in `index'
+  [1m[36mLineItem Load (3.6ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/controllers/orders_controller.rb:83:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.97ms)
+Completed 200 OK in 231ms (Views: 7.2ms | ActiveRecord: 13.5ms | Allocations: 13032)
+
+
+Started GET "/orders" for ::1 at 2023-11-30 12:08:50 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:22:in `index'
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 20.2ms | Allocations: 4862)
+
+
+  
+NameError (uninitialized constant OrdersController::ORDERPROCESS):
+  
+app/controllers/orders_controller.rb:24:in `index'
+Started GET "/orders" for ::1 at 2023-11-30 12:10:58 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:22:in `index'
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 6.4ms | Allocations: 5832)
+
+
+  
+NoMethodError (undefined method `get_products_by_ids' for #<OrdersController:0x00000000015fb8>):
+  
+app/controllers/orders_controller.rb:24:in `index'
+Started GET "/orders" for ::1 at 2023-11-30 12:11:27 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:22:in `index'
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 3.7ms | Allocations: 4901)
+
+
+  
+NameError (uninitialized constant OrdersController::ORDERPROCESS):
+  
+app/controllers/orders_controller.rb:24:in `index'
+Started GET "/orders" for ::1 at 2023-11-30 12:13:13 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:22:in `index'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 5.8ms | Allocations: 4901)
+
+
+  
+NameError (uninitialized constant OrdersController::OrderProcess):
+  
+app/controllers/orders_controller.rb:24:in `index'
+Started GET "/orders" for ::1 at 2023-11-30 12:13:40 +0530
+  
+NameError (uninitialized constant OrdersController::OrderProcess):
+  
+app/controllers/orders_controller.rb:2:in `<class:OrdersController>'
+app/controllers/orders_controller.rb:1:in `<main>'
+Started GET "/orders" for ::1 at 2023-11-30 12:18:36 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 7.7ms | Allocations: 4901)
+
+
+  
+NameError (uninitialized constant OrdersController::OrderProcess):
+  
+app/controllers/orders_controller.rb:25:in `index'
+Started GET "/orders" for ::1 at 2023-11-30 12:21:09 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 4.5ms | Allocations: 4901)
+
+
+  
+NameError (uninitialized constant OrdersController::OrderProcess):
+  
+app/controllers/orders_controller.rb:25:in `index'
+Started GET "/orders" for ::1 at 2023-11-30 12:23:07 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 3.5ms | Allocations: 4901)
+
+
+  
+NameError (uninitialized constant OrdersController::OrderProcess):
+  
+app/controllers/orders_controller.rb:25:in `index'
+Started GET "/orders" for ::1 at 2023-11-30 12:23:09 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms | Allocations: 618)
+
+
+  
+NameError (uninitialized constant OrdersController::OrderProcess):
+  
+app/controllers/orders_controller.rb:25:in `index'
+Started GET "/orders" for ::1 at 2023-11-30 14:10:55 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (9.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+Completed 500 Internal Server Error in 509ms (ActiveRecord: 206.8ms | Allocations: 3498)
+
+
+  
+NameError (uninitialized constant OrdersController::OrderProcess):
+  
+app/controllers/orders_controller.rb:25:in `index'
+Started GET "/orders" for ::1 at 2023-11-30 14:12:18 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (5.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 31.1ms | Allocations: 24444)
+
+
+  
+NameError (uninitialized constant OrdersController::OrderProcess):
+  
+app/controllers/orders_controller.rb:25:in `index'
+Started GET "/orders" for ::1 at 2023-11-30 14:12:44 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (1.6ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["order_id", 1], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 6.1ms | Allocations: 15872)
+
+
+  [1m[36mCACHE LineItem Load (0.0ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["order_id", 1], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `get_products_by_ids' for #<OrderProcessService:0x0000000110d10d10 @line_item=#<ActiveRecord::Associations::CollectionProxy [#<LineItem id: 13, order_id: 1, product_id: 10, quantity: 5, price: 0.8e2, created_at: "2023-11-29 11:34:19.946518000 +0000", updated_at: "2023-11-30 04:43:39.668045000 +0000">]>>):
+  
+app/controllers/orders_controller.rb:26:in `index'
+  [1m[36mCACHE LineItem Load (0.0ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["order_id", 1], ["LIMIT", 11]]
+Started GET "/orders" for ::1 at 2023-11-30 14:13:20 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:8:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.17ms)
+Completed 200 OK in 397ms (Views: 4.8ms | ActiveRecord: 17.6ms | Allocations: 11765)
+
+
+Started GET "/orders" for ::1 at 2023-11-30 14:15:16 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.59ms)
+Completed 200 OK in 276ms (Views: 1.5ms | ActiveRecord: 11.1ms | Allocations: 10767)
+
+
+Started GET "/orders" for ::1 at 2023-11-30 14:15:25 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 38ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 2086)
+
+
+Started GET "/orders" for ::1 at 2023-11-30 14:15:53 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.24ms)
+Completed 200 OK in 389ms (Views: 1.0ms | ActiveRecord: 5.2ms | Allocations: 10667)
+
+
+Started GET "/orders" for ::1 at 2023-11-30 14:15:55 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+Completed 200 OK in 33ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 2085)
+
+
+Started POST "/order" for ::1 at 2023-11-30 14:16:02 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"20", "price"=>58, "quantity"=>1, "order"=>{}}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:6:in `create'
+  [1m[36mLineItem Load (0.6ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 1], ["product_id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:15:in `create'
+  [1m[36mLineItem Create (13.6ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 1], ["product_id", 20], ["quantity", 1], ["price", "58.0"], ["created_at", "2023-11-30 08:46:02.971467"], ["updated_at", "2023-11-30 08:46:02.971467"]]
+  ↳ app/controllers/orders_controller.rb:15:in `create'
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/models/line_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (5.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "458.0"], ["updated_at", "2023-11-30 08:46:02.990984"], ["id", 1]]
+  ↳ app/models/line_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.56ms)
+Completed 201 Created in 44ms (Views: 2.3ms | ActiveRecord: 23.0ms | Allocations: 6701)
+
+
+Started GET "/orders" for ::1 at 2023-11-30 14:16:03 +0530
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 200 OK in 61ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 2834)
+
+
+Started GET "/orders" for ::1 at 2023-11-30 14:16:03 +0530
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.1ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 200 OK in 58ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 2856)
+
+
+Started GET "/orders" for ::1 at 2023-11-30 14:16:06 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 115ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 2861)
+
+
