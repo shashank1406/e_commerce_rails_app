@@ -15,8 +15,9 @@ RSpec.describe "Products", type: :request do
     end
 
     context "with valid parameters" do 
+
       before do 
-        post '/product',params: valid_attributes
+        post '/product', params: valid_attributes
       end 
 
      it "creates a product" do 

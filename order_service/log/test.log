@@ -1,0 +1,387 @@
+  [1m[35m (64.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "orders_test"[0m
+  [1m[35m (229.1ms)[0m  [1m[35mCREATE DATABASE "orders_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "line_items" CASCADE[0m
+  [1m[35m (87.5ms)[0m  [1m[35mCREATE TABLE "line_items" ("id" bigserial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "orders" CASCADE[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "status" character varying, "user_id" integer, "total_price" decimal, "guest_id" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (40.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231128065423)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231128044233);[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2023-11-29 11:06:54.441544', '2023-11-29 11:06:54.441547') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '4b0256ce2b7aeb969e8f441d684243554d13add0', '2023-11-29 11:06:54.443712', '2023-11-29 11:06:54.443715') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (18.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:44:09 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (12.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (1.4ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:14:10.020436"], ["updated_at", "2023-11-29 11:14:10.020436"]]
+  [1m[36mLineItem Create (1.6ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:14:10.023025"], ["updated_at", "2023-11-29 11:14:10.023025"]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:14:10.026655"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.18ms)
+Completed 201 Created in 126ms (Views: 2.2ms | ActiveRecord: 53.9ms | Allocations: 31787)
+  [1m[36mOrder Count (5.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:45:46 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (1.3ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:15:46.133323"], ["updated_at", "2023-11-29 11:15:46.133323"]]
+  [1m[36mLineItem Create (0.3ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 2], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:15:46.135826"], ["updated_at", "2023-11-29 11:15:46.135826"]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 2]]
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:15:46.138735"], ["id", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.16ms)
+Completed 201 Created in 84ms (Views: 1.7ms | ActiveRecord: 9.9ms | Allocations: 31787)
+  [1m[36mOrder Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:45:59 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:15:59.155494"], ["updated_at", "2023-11-29 11:15:59.155494"]]
+  [1m[36mLineItem Create (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 3], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:15:59.157713"], ["updated_at", "2023-11-29 11:15:59.157713"]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 3]]
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:15:59.159752"], ["id", 3]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.18ms)
+Completed 201 Created in 79ms (Views: 2.3ms | ActiveRecord: 9.5ms | Allocations: 31788)
+  [1m[36mOrder Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:46:08 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:16:08.736530"], ["updated_at", "2023-11-29 11:16:08.736530"]]
+  [1m[36mLineItem Create (0.3ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 4], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:16:08.738159"], ["updated_at", "2023-11-29 11:16:08.738159"]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 4]]
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:16:08.741183"], ["id", 4]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.28ms)
+Completed 201 Created in 75ms (Views: 2.2ms | ActiveRecord: 9.0ms | Allocations: 31789)
+  [1m[36mOrder Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:46:23 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (1.5ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:16:23.392143"], ["updated_at", "2023-11-29 11:16:23.392143"]]
+  [1m[36mLineItem Create (0.3ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 5], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:16:23.395446"], ["updated_at", "2023-11-29 11:16:23.395446"]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 5]]
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:16:23.397929"], ["id", 5]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.21ms)
+Completed 201 Created in 81ms (Views: 2.3ms | ActiveRecord: 9.9ms | Allocations: 31790)
+  [1m[36mOrder Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:46:33 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (1.3ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:16:33.173573"], ["updated_at", "2023-11-29 11:16:33.173573"]]
+  [1m[36mLineItem Create (0.3ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 6], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:16:33.176428"], ["updated_at", "2023-11-29 11:16:33.176428"]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 6]]
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:16:33.178690"], ["id", 6]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.29ms)
+Completed 201 Created in 79ms (Views: 2.4ms | ActiveRecord: 8.9ms | Allocations: 31788)
+  [1m[36mOrder Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" ORDER BY "line_items"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:54:13 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (1.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:24:13.303199"], ["updated_at", "2023-11-29 11:24:13.303199"]]
+  [1m[36mLineItem Create (0.3ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 7], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:24:13.305433"], ["updated_at", "2023-11-29 11:24:13.305433"]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 7]]
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:24:13.307755"], ["id", 7]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.19ms)
+Completed 201 Created in 104ms (Views: 2.4ms | ActiveRecord: 11.9ms | Allocations: 31787)
+  [1m[36mOrder Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mLineItem Load (0.1ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" ORDER BY "line_items"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:54:13 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:24:13.321672"], ["updated_at", "2023-11-29 11:24:13.321672"]]
+  [1m[36mLineItem Create (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 8], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:24:13.322658"], ["updated_at", "2023-11-29 11:24:13.322658"]]
+  [1m[36mLineItem Load (0.1ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 8]]
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:24:13.324211"], ["id", 8]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.11ms)
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 1.2ms | Allocations: 2061)
+Started GET "/orders" for 127.0.0.1 at 2023-11-29 16:54:13 +0530
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.1ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 8]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.28ms)
+Completed 200 OK in 892ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 2042)
+  [1m[36mOrder Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:54:45 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (1.2ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:24:45.997880"], ["updated_at", "2023-11-29 11:24:45.997880"]]
+  [1m[36mLineItem Create (0.4ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 9], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:24:46.000265"], ["updated_at", "2023-11-29 11:24:46.000265"]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 9]]
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:24:46.002803"], ["id", 9]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.22ms)
+Completed 201 Created in 80ms (Views: 2.5ms | ActiveRecord: 8.9ms | Allocations: 31786)
+  [1m[36mOrder Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" ORDER BY "line_items"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:54:46 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:24:46.020315"], ["updated_at", "2023-11-29 11:24:46.020315"]]
+  [1m[36mLineItem Create (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 10], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:24:46.021452"], ["updated_at", "2023-11-29 11:24:46.021452"]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 10]]
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:24:46.023259"], ["id", 10]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.13ms)
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 2061)
+Started GET "/orders" for 127.0.0.1 at 2023-11-29 16:54:46 +0530
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.1ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 10]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 43ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 2042)
+  [1m[36mOrder Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mLineItem Load (0.1ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" ORDER BY "line_items"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:55:24 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (10.9ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:25:25.086370"], ["updated_at", "2023-11-29 11:25:25.086370"]]
+  [1m[36mLineItem Create (0.6ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 11], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:25:25.098710"], ["updated_at", "2023-11-29 11:25:25.098710"]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 11]]
+  [1m[36mOrder Update (0.5ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:25:25.102647"], ["id", 11]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.21ms)
+Completed 201 Created in 94ms (Views: 2.3ms | ActiveRecord: 18.8ms | Allocations: 31789)
+  [1m[36mOrder Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" ORDER BY "line_items"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:55:25 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:25:25.117370"], ["updated_at", "2023-11-29 11:25:25.117370"]]
+  [1m[36mLineItem Create (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 12], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:25:25.118289"], ["updated_at", "2023-11-29 11:25:25.118289"]]
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 12]]
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:25:25.120268"], ["id", 12]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.11ms)
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 2061)
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:55:25 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 12], ["product_id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms | Allocations: 886)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:58:07 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (1.3ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:28:07.213198"], ["updated_at", "2023-11-29 11:28:07.213198"]]
+  [1m[36mLineItem Create (0.4ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 13], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:28:07.216099"], ["updated_at", "2023-11-29 11:28:07.216099"]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 13]]
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:28:07.218675"], ["id", 13]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.64ms)
+Completed 201 Created in 129ms (Views: 2.3ms | ActiveRecord: 12.5ms | Allocations: 31789)
+  [1m[36mOrder Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" ORDER BY "line_items"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:58:07 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (1.0ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:28:07.256772"], ["updated_at", "2023-11-29 11:28:07.256772"]]
+  [1m[36mLineItem Create (0.3ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 14], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:28:07.259041"], ["updated_at", "2023-11-29 11:28:07.259041"]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 14]]
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:28:07.261602"], ["id", 14]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.16ms)
+Completed 201 Created in 12ms (Views: 0.5ms | ActiveRecord: 2.8ms | Allocations: 2061)
+Started POST "/order" for 127.0.0.1 at 2023-11-29 16:58:07 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 14], ["product_id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.7ms | Allocations: 886)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 17:00:54 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (1.4ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:30:54.523731"], ["updated_at", "2023-11-29 11:30:54.523731"]]
+  [1m[36mLineItem Create (0.4ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 15], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:30:54.526403"], ["updated_at", "2023-11-29 11:30:54.526403"]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 15]]
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:30:54.529487"], ["id", 15]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.2ms)
+Completed 201 Created in 89ms (Views: 1.9ms | ActiveRecord: 9.7ms | Allocations: 31789)
+  [1m[36mOrder Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mLineItem Load (0.1ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" ORDER BY "line_items"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 17:00:54 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:30:54.551233"], ["updated_at", "2023-11-29 11:30:54.551233"]]
+  [1m[36mLineItem Create (0.9ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 16], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:30:54.552360"], ["updated_at", "2023-11-29 11:30:54.552360"]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 16]]
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:30:54.554832"], ["id", 16]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.13ms)
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 2.2ms | Allocations: 2063)
+Started POST "/order" for 127.0.0.1 at 2023-11-29 17:00:54 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 16], ["product_id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms | Allocations: 886)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 17:04:00 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:34:00.192353"], ["updated_at", "2023-11-29 11:34:00.192353"]]
+  [1m[36mLineItem Create (0.4ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 17], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:34:00.194824"], ["updated_at", "2023-11-29 11:34:00.194824"]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 17]]
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:34:00.197522"], ["id", 17]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.2ms)
+Completed 201 Created in 112ms (Views: 1.8ms | ActiveRecord: 10.4ms | Allocations: 31789)
+  [1m[36mOrder Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mLineItem Load (0.1ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" ORDER BY "line_items"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/order" for 127.0.0.1 at 2023-11-29 17:04:00 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOrder Create (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("status", "user_id", "total_price", "guest_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", "CART"], ["user_id", 20], ["total_price", nil], ["guest_id", nil], ["created_at", "2023-11-29 11:34:00.212169"], ["updated_at", "2023-11-29 11:34:00.212169"]]
+  [1m[36mLineItem Create (0.6ms)[0m  [1m[32mINSERT INTO "line_items" ("order_id", "product_id", "quantity", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 18], ["product_id", 1], ["quantity", 1], ["price", "100.0"], ["created_at", "2023-11-29 11:34:00.213267"], ["updated_at", "2023-11-29 11:34:00.213267"]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 18]]
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "100.0"], ["updated_at", "2023-11-29 11:34:00.215577"], ["id", 18]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.13ms)
+Completed 201 Created in 7ms (Views: 0.6ms | ActiveRecord: 1.9ms | Allocations: 2061)
+Started POST "/order" for 127.0.0.1 at 2023-11-29 17:04:00 +0530
+Processing by OrdersController#create as HTML
+  Parameters: {"product_id"=>"1", "price"=>"100", "quantity"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 20], ["status", "CART"], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 18], ["product_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLineItem Update (0.5ms)[0m  [1m[33mUPDATE "line_items" SET "quantity" = $1, "updated_at" = $2 WHERE "line_items"."id" = $3[0m  [["quantity", 2], ["updated_at", "2023-11-29 11:34:00.221552"], ["id", 18]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 18]]
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "200.0"], ["updated_at", "2023-11-29 11:34:00.224497"], ["id", 18]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.16ms)
+Completed 201 Created in 8ms (Views: 0.5ms | ActiveRecord: 1.8ms | Allocations: 1908)
+  [1m[36mOrder Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" ORDER BY "line_items"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m

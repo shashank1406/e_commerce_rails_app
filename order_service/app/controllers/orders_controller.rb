@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
         @line_item = @order.line_items.find_by_product_id(params[:product_id])
 
         if @line_item
-            @line_item.update({quantity: params[:quantity],price: params[:price]})
+            @line_item.update({quantity: @line_item.quantity+params[:quantity].to_i,price: params[:price]})
         else
             @order.line_items.build({product_id: params[:product_id], quantity: params[:quantity],price: params[:price] })
         end
