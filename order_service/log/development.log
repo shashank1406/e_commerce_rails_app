@@ -4376,3 +4376,204 @@ Processing by OrdersController#index as */*
 Completed 200 OK in 115ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 2861)
 
 
+Started GET "/orders" for ::1 at 2023-12-01 10:39:23 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (9.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (1.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (2.0ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 38.6ms | Allocations: 35164)
+
+
+  
+Errno::ECONNREFUSED (Failed to open TCP connection to localhost:3002 (Connection refused - connect(2) for "localhost" port 3002)):
+  
+app/services/order_process_service.rb:10:in `block in get_products_by_ids'
+app/services/order_process_service.rb:9:in `get_products_by_ids'
+app/controllers/orders_controller.rb:26:in `index'
+Started GET "/orders" for ::1 at 2023-12-01 10:39:39 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.61ms)
+Completed 200 OK in 635ms (Views: 2.5ms | ActiveRecord: 1.0ms | Allocations: 3889)
+
+
+Started GET "/orders" for ::1 at 2023-12-01 10:58:48 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.44ms)
+Completed 200 OK in 258ms (Views: 1.2ms | ActiveRecord: 10.3ms | Allocations: 13859)
+
+
+Started PUT "/orders/20" for ::1 at 2023-12-01 10:59:21 +0530
+  
+ActionController::RoutingError (No route matches [PUT] "/orders/20"):
+  
+Started PUT "/order/20" for ::1 at 2023-12-01 10:59:33 +0530
+Processing by OrdersController#update as */*
+  Parameters: {"quantity"=>2, "product_id"=>"20", "order"=>{}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 4], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:33:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 2ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 691)
+
+
+Started PUT "/order/20" for ::1 at 2023-12-01 11:04:05 +0530
+Processing by OrdersController#update as */*
+  Parameters: {"quantity"=>2, "product_id"=>"20", "order"=>{}}
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:33:in `update'
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 1], ["product_id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:35:in `update'
+[31mUnpermitted parameters: :product_id, :order. Context: { controller: OrdersController, action: update, request: #<ActionDispatch::Request:0x0000000110691c28>, params: {"quantity"=>2, "controller"=>"orders", "action"=>"update", "product_id"=>"20", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:36:in `update'
+  [1m[36mLineItem Update (10.5ms)[0m  [1m[33mUPDATE "line_items" SET "quantity" = $1, "updated_at" = $2 WHERE "line_items"."id" = $3[0m  [["quantity", 2], ["updated_at", "2023-12-01 05:34:05.866889"], ["id", 15]]
+  ↳ app/controllers/orders_controller.rb:36:in `update'
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/models/line_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "516.0"], ["updated_at", "2023-12-01 05:34:05.890188"], ["id", 1]]
+  ↳ app/models/line_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:36:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 200 OK in 111ms (Views: 2.3ms | ActiveRecord: 13.2ms | Allocations: 5616)
+
+
+Started GET "/orders" for ::1 at 2023-12-01 11:04:14 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.64ms)
+Completed 200 OK in 163ms (Views: 1.1ms | ActiveRecord: 0.6ms | Allocations: 2838)
+
+
+Started DELETE "/order/20" for ::1 at 2023-12-01 11:11:11 +0530
+Processing by OrdersController#destroy as */*
+  Parameters: {"product_id"=>"20"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:48:in `destroy'
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 1], ["product_id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:50:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:51:in `destroy'
+  [1m[36mLineItem Destroy (1.3ms)[0m  [1m[31mDELETE FROM "line_items" WHERE "line_items"."id" = $1[0m  [["id", 15]]
+  ↳ app/controllers/orders_controller.rb:51:in `destroy'
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/models/line_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "400.0"], ["updated_at", "2023-12-01 05:41:11.731054"], ["id", 1]]
+  ↳ app/models/line_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:51:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 89ms (Views: 1.8ms | ActiveRecord: 12.6ms | Allocations: 15318)
+
+
+Started GET "/orders" for ::1 at 2023-12-01 11:27:45 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.22ms)
+Completed 200 OK in 121ms (Views: 2.9ms | ActiveRecord: 7.3ms | Allocations: 12961)
+
+
+Started GET "/orders" for ::1 at 2023-12-01 11:27:48 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 200 OK in 38ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 2071)
+
+
+Started PUT "/order/25" for ::1 at 2023-12-01 11:32:14 +0530
+Processing by OrdersController#update as */*
+  Parameters: {"quantity"=>2, "product_id"=>"25", "order"=>{}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:33:in `update'
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 1], ["product_id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:35:in `update'
+[31mUnpermitted parameters: :product_id, :order. Context: { controller: OrdersController, action: update, request: #<ActionDispatch::Request:0x0000000114e1e898>, params: {"quantity"=>2, "controller"=>"orders", "action"=>"update", "product_id"=>"25", "order"=>{}} }[0m
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 19.5ms | Allocations: 5950)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/orders_controller.rb:36:in `update'
+Started PUT "/order/20" for ::1 at 2023-12-01 11:33:29 +0530
+Processing by OrdersController#update as */*
+  Parameters: {"quantity"=>4, "product_id"=>"20", "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:33:in `update'
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 1], ["product_id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:35:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 15ms (Views: 1.2ms | ActiveRecord: 5.5ms | Allocations: 6046)
+
+
+Started GET "/orders" for ::1 at 2023-12-01 11:33:46 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.8ms)
+Completed 200 OK in 78ms (Views: 1.3ms | ActiveRecord: 0.6ms | Allocations: 4939)
+
+
+Started PUT "/order/10" for ::1 at 2023-12-01 11:33:53 +0530
+Processing by OrdersController#update as */*
+  Parameters: {"quantity"=>4, "product_id"=>"10", "order"=>{}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:33:in `update'
+  [1m[36mLineItem Load (0.8ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 1], ["product_id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:35:in `update'
+[31mUnpermitted parameters: :product_id, :order. Context: { controller: OrdersController, action: update, request: #<ActionDispatch::Request:0x000000011495e4c0>, params: {"quantity"=>4, "controller"=>"orders", "action"=>"update", "product_id"=>"10", "order"=>{}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/orders_controller.rb:37:in `update'
+  [1m[36mLineItem Update (1.6ms)[0m  [1m[33mUPDATE "line_items" SET "quantity" = $1, "updated_at" = $2 WHERE "line_items"."id" = $3[0m  [["quantity", 4], ["updated_at", "2023-12-01 06:03:53.226462"], ["id", 13]]
+  ↳ app/controllers/orders_controller.rb:37:in `update'
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/models/line_item.rb:8:in `update_total_price'
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "total_price" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["total_price", "320.0"], ["updated_at", "2023-12-01 06:03:53.232808"], ["id", 1]]
+  ↳ app/models/line_item.rb:9:in `update_total_price'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/orders_controller.rb:37:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 17ms (Views: 0.6ms | ActiveRecord: 3.9ms | Allocations: 4713)
+
+
+Started GET "/orders" for ::1 at 2023-12-01 11:33:58 +0530
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `index'
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/services/order_process_service.rb:9:in `get_products_by_ids'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.24ms)
+Completed 200 OK in 41ms (Views: 0.7ms | ActiveRecord: 0.5ms | Allocations: 2069)
+
+
+Started PUT "/order/15" for ::1 at 2023-12-01 11:37:27 +0530
+Processing by OrdersController#update as */*
+  Parameters: {"quantity"=>4, "product_id"=>"15", "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["user_id", 1], ["status", "CART"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:33:in `update'
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["order_id", 1], ["product_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:35:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 422 Unprocessable Entity in 16ms (Views: 0.5ms | ActiveRecord: 7.2ms | Allocations: 6007)
+
+

@@ -21,8 +21,8 @@ class OrdersController < ApplicationController
     
     def index
         @orders = Order.find_by(user_id: @current_user_id, status: 'CART')
-        order_process = OrderProcessService.new(@orders.line_items,@token)
         if @orders
+            order_process = OrderProcessService.new(@orders.line_items,@token)
             render json: {order_detail: @orders, products: order_process.get_products_by_ids()} , status: :ok
         else
             render json: {message: 'not found'}, status: :unprocessable_entity
@@ -35,8 +35,9 @@ class OrdersController < ApplicationController
             @line_item = @order.line_items.find_by_product_id(params[:product_id])
             if @line_item
                 @line_item.update(line_item_update_params)
+                render json: {message: 'product quantity updated sucessfully'}, status: :ok
             else
-                render json: {message: 'not found'}, status: :unprocessable_entity
+                render json: {message: 'failed to remove'}, status: :unprocessable_entity
             end
         else
             render json: {message: 'not found'}, status: :unprocessable_entity
@@ -47,10 +48,11 @@ class OrdersController < ApplicationController
         @order = Order.find_by(user_id: @current_user_id, status: 'CART')
         if @order
             @line_item = @order.line_items.find_by_product_id(params[:product_id])
-            if @line_item.destroy
+            if @line_item
+                @line_item.destroy
                 render json: {message: 'romoved product from cart successfully'}, status: :ok
             else
-                render json: {message: 'failed to remove'}, status: :unprocessable_entity
+                render json: {message: 'failed to delete'}, status: :unprocessable_entity
             end
         else
             render json: {message: 'not found'}, status: :unprocessable_entity
@@ -66,14 +68,5 @@ class OrdersController < ApplicationController
     def line_item_update_params
         params.permit(:quantity)
     end
-
-    # def get_products_by_ids(line_item)
-    #     response = []
-    #     line_item.each do |item|
-    #         product = HTTParty.get("http://localhost:3002/product/#{item.product_id}",headers: {Authorization: "Bearer #{@token}"} )
-    #         response.push({**product.parsed_response, quantity:item.quantity})
-    #     end
-    #     response
-    # end
        
 end
