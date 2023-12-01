@@ -11,5 +11,6 @@ class OrderProcessService
             response.push({**product.parsed_response, quantity:item.quantity})
         end
         response
+        
     end
 end

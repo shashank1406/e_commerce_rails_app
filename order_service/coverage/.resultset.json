@@ -1,0 +1,168 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/shashankshrivastava/Desktop/coffebeans projects/ror-training/e_commerce_rails_app/order_service/spec/support/jwt_helper.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          13,
+          null,
+          null
+        ]
+      },
+      "/Users/shashankshrivastava/Desktop/coffebeans projects/ror-training/e_commerce_rails_app/order_service/app/controllers/orders_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          11,
+          11,
+          null,
+          11,
+          1,
+          null,
+          10,
+          null,
+          null,
+          11,
+          11,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          2,
+          2,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          3,
+          3,
+          2,
+          2,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          3,
+          3,
+          2,
+          2,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/shashankshrivastava/Desktop/coffebeans projects/ror-training/e_commerce_rails_app/order_service/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          19,
+          19,
+          null,
+          19,
+          0,
+          null,
+          null,
+          19,
+          19,
+          19,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/shashankshrivastava/Desktop/coffebeans projects/ror-training/e_commerce_rails_app/order_service/app/models/order.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/shashankshrivastava/Desktop/coffebeans projects/ror-training/e_commerce_rails_app/order_service/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/shashankshrivastava/Desktop/coffebeans projects/ror-training/e_commerce_rails_app/order_service/app/models/line_item.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          25,
+          13,
+          null,
+          null
+        ]
+      },
+      "/Users/shashankshrivastava/Desktop/coffebeans projects/ror-training/e_commerce_rails_app/order_service/app/services/order_process_service.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1701426298
+  }
+}
